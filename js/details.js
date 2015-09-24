@@ -1,10 +1,10 @@
 	function scrollDetails(hash) {	
 								$("html").css("overflow","hidden");
-								$("#fullscreen_prueba_detalle").css("overflow","scroll");
+								$("#fullscreen_detail").css("overflow","scroll");
 						};	
 						function unscrollDetails() {	
 								$("html").css("overflow","scroll");
-								$("#fullscreen_prueba_detalle").css("overflow","hidden");
+								$("#fullscreen_detail").css("overflow","hidden");
 						};	
 							function f_play_detalle(id,id2,id3,id4,id5) {
 				$.get("https://yts.to/api/v2/movie_details.json?movie_id="+id2, function (data) {
@@ -48,11 +48,11 @@
     console.log(movie.data.torrents[1].download_count +"20502");
     console.log(movie.data.torrents[1].date_uploaded +"2015-09-16 19:38:50");
     console.log(movie.data.torrents[1].date_uploaded_unix +"1442389130");
-						$("#fullscreen_prueba_detalle").attr('class','fullscreen_prueba_detalle_in'); 
+						$("#fullscreen_detail").attr('class','fullscreen_detail_in'); 
 				});
 						};
 						 function closeThis_detalle()
   {
   document.getElementById("images_detalle").innerHTML = "";
-  	$("#fullscreen_prueba_detalle").attr('class','fullscreen_prueba_detalle_out');
+  	$("#fullscreen_detail").attr('class','fullscreen_detail_out');
   };	
