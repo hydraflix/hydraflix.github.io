@@ -48,5 +48,5 @@
 						 function closeThis()
   {
   document.getElementById("images").innerHTML = "";
-  	$("#fullscreen_detail").attr('class','fullscreen_detail_out');
+  	$("#fullscreen_player").attr('class','fullscreen_detail_out');
   };
