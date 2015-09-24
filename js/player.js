@@ -37,7 +37,7 @@
 							     }  
 							    );
 									}
-					              $("#fullscreen_detail").attr('class','fullscreen_detail_in');            
+					              $("#fullscreen_player").attr('class','fullscreen_player_in');            
 					             if ( i == 0 ) return false;
 
 					            }); 
