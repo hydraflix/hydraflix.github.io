@@ -37,7 +37,7 @@
 							     }  
 							    );
 									}
-					              $("#fullscreen_prueba").attr('class','fullscreen_prueba_in');            
+					              $("#fullscreen_detail").attr('class','fullscreen_detail_in');            
 					             if ( i == 0 ) return false;
 
 					            }); 
@@ -48,5 +48,5 @@
 						 function closeThis()
   {
   document.getElementById("images").innerHTML = "";
-  	$("#fullscreen_prueba").attr('class','fullscreen_prueba_out');
+  	$("#fullscreen_detail").attr('class','fullscreen_detail_out');
   };
