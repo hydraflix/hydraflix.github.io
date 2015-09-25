@@ -35,7 +35,7 @@ function f_play_detalle(id,id2,id3,id4,id5) {
             var blob = new Blob( [ loaded ], { type: "image/jpeg" });
             var urlCreator = window.URL || window.webkitURL;
             loadedUrl = urlCreator.createObjectURL( blob );
-            $("#html_bg_play").css('background-image', 'url('+loadedUrl+')');
+            $("#html_bg_play").css('background-image', 'url('+loadedUrl+'.jpg)');
         });
         html += '</div>';
         html += '</div>';
