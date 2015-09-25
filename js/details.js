@@ -31,11 +31,7 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         var num_aleatorio = Math.floor(Math.random() * 51) + 25;
         jsonp_var = ";jsonp=?";            
         $.getJSON("http://api.furk.net/api/dl/add?info_hash=" + movie.data.torrents[0].hash + "&t_files=1&api_key=" + api_key_var + jsonp_var, function(data){
-            var loaded = data.files[0].ss_urls[4];
-            var blob = new Blob( [ loaded ], { type: "image/jpeg" });
-            var urlCreator = window.URL || window.webkitURL;
-            loadedUrl = urlCreator.createObjectURL( blob );
-            $("#html_bg_play").css('background-image', 'url('+loadedUrl+'.jpg)');
+            $("#html_bg_play").css('background-image', 'url(http://crossorigin.me/'+data.files[0].ss_urls[4]+')');
         });
         html += '</div>';
         html += '</div>';
