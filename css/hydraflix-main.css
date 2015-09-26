@@ -282,66 +282,42 @@ div[id^="movie-rating-star-"] {
 	color: #ffd700;
 	font-size: 20px;
 }
-body::-webkit-scrollbar-track
-{
+body::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
     visibility: hidden;
 }
-body::-webkit-scrollbar
-{
+body::-webkit-scrollbar {
 	width: 10px;
 	background-color: #F5F5F5;
   visibility: hidden;
 }
-body::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
-    visibility: hidden;
+body::-webkit-scrollbar-thumb {
+	background-color: #013BA6;
 }
-body::-webkit-scrollbar-thumb:hover
-{
-    visibility: visible;
-}
-#fullscreen_detail::-webkit-scrollbar-track
-{
+#fullscreen_detail::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
-    visibility: hidden;
+	visibility: hidden;
 }
-#fullscreen_detail::-webkit-scrollbar
-{
+#fullscreen_detail::-webkit-scrollbar {
 	width: 10px;
 	background-color: #F5F5F5;
-  visibility: hidden;
+	visibility: hidden;
 }
-#fullscreen_detail::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
-    visibility: hidden;
+#fullscreen_detail::-webkit-scrollbar-thumb {
+	background-color: #013BA6;
 }
-#fullscreen_detail::-webkit-scrollbar-thumb:hover
-{
-    visibility: visible;
-}
-#fullscreen_player::-webkit-scrollbar-track
-{
+#fullscreen_player::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
-    visibility: hidden;
+	visibility: hidden;
 }
-#fullscreen_player::-webkit-scrollbar
-{
+#fullscreen_player::-webkit-scrollbar {
 	width: 10px;
 	background-color: #F5F5F5;
-  visibility: hidden;
+  	visibility: hidden;
 }
-#fullscreen_player::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
-    visibility: hidden;
-}
-#fullscreen_player::-webkit-scrollbar-thumb:hover
-{
-    visibility: visible;
+#fullscreen_player::-webkit-scrollbar-thumb {
+	background-color: #013BA6;
 }
