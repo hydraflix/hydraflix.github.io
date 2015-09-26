@@ -16,7 +16,9 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         movie_rating_star_empty = '<span class="glyphicon glyphicon-star" aria-hidden="true" style="color:#000;"></span>';
         movie_rating = Math.round(id5);
         var html = "";
+        
         html += '<img id="close" src="http://i.imgur.com/P7Svq.png" style="position: fixed; z-index: 100000; top: 0%; right: 0%;" onclick="closeThis_detalle(); unscrollDetails();" />';
+        /*
         html += '<div class="row title_movie_background" style="background-image: url('+id4+');"><div class="title_movie_background_black"><div class="title_movie">'+movie.data.title+'';
         html += '<div class="movie-rating-star-'+movie.data.torrents[0].hash+'" class="row movie_rating_star">'+repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating))+'</div>';
         html += '</div></div></div>';
@@ -24,6 +26,26 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         html += '<div class="col-md-4"><img class="" title="'+movie.data.title+'" alt="'+movie.data.title+'" src="'+id3+'" style="height: 360px; position: relative; float: right;"/></div>';
         html += '<div id="html_bg_play" class="col-md-8 hover-pointer hover-luz" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)" style="width: 100%; max-width: 640px; height: 360px; background-position: cover; background-size: cover;">';  
         html += '<img class="hover-pointer" src="http://i.imgur.com/3n9rl.png" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)" style="position: relative; top:50%;left:50%;margin-top:-45px;margin-left:-45px;"/>';
+        */
+
+        html + = '<div id="bg-yts" class="container-fluid" style="background-image: url('+id4+');">';
+        html + = '<img id="bg-yts-play" src="http://i.imgur.com/UDD2Qzj.png" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)">';
+        html + = '<div id="head-detail" class="row">';
+        html + = '<div id="title-yts" class="row">';
+        html + = '<p class="title-yts-p">'+movie.data.title+'</p>';
+        html + = '<div class="title-yts-p">';
+        html + = repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating));
+        html + = '</div>';
+        html + = '<p class="little-title-p">';
+        html + =  '['+movie.data.mpa_rating+'] '+movie.data.runtime+' - '+movie.data.genres[0]+' | '+movie.data.genres[1]+' '+movie.data.year; // '[R] 95 min - Action | Crime | Sci-Fi - 21 Septermber 2012 (USA)';
+        html + = '</p>';
+        html + = '</div>';
+        html + = '<div id="poster-yts" class="col-md-4">';
+        html + = '<img src="'+id3+'" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)">';
+        html + = '</div>';
+        html + = '</div>';
+        html + = '</div>';
+        /*
         api_number1 = Math.round(Math.random()*(6-0)+0); // The lefty number is the total quantity of element-1
         api_number2 = api_number1+1;
         api_list = ["93979e5200c4e0c9f75a516dec8dfe0180a785b2", "fae4a7c8bc2dd28f7d505a67f6b6efd33869733d", "35221d40fb165ebe1bcb2fd0af6e102b563dd906", "d925f3c996b41ad878a0b592d4dacc579db0e2ba", "bf5a6aff46a86d36779d3af00d004f4fd19368c0", "369cb28d46df42881bd2aa1373544e3dc46ec062", "5b3018cd4332f3783cd6a8e32c461cf425ed3759"];
@@ -35,6 +57,7 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         });
         html += '</div>';
         html += '</div>';
+        */
         /*
         // features coming soon ! =)
         html += '<div class="col-md-12">'
