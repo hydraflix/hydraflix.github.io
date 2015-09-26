@@ -9,6 +9,9 @@
 body {
 	overflow-x: hidden;
 }
+body::-webkit-scrollbar-track-piece {
+  background-color: #000000;
+}
 body::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
@@ -305,6 +308,9 @@ div[id^="movie-rating-star-"] {
 #fullscreen_player {
 	overflow-x: hidden!important;
 }
+#fullscreen_detail::-webkit-scrollbar-track-piece {
+  background-color: #000000;
+}
 #fullscreen_detail::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
@@ -318,6 +324,9 @@ div[id^="movie-rating-star-"] {
 #fullscreen_detail::-webkit-scrollbar-thumb {
 	background-color: #013BA6;
 	height: 100px;
+}
+#fullscreen_player::-webkit-scrollbar-track-piece {
+  background-color: #000000;
 }
 #fullscreen_player::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
