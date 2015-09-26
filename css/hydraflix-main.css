@@ -6,6 +6,9 @@
 	text-decoration: none;
 	font-family: 'Open Sans', sans-serif;
 }
+body {
+	overflow-x: hidden;
+}
 .movie-box img {
     display: block;
     margin-left: auto;
