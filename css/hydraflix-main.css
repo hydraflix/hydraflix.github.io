@@ -354,3 +354,85 @@ body::-webkit-scrollbar-thumb:horizontal {display: none!important;}
 #fullscreen_player::-webkit-scrollbar-track:horizontal {display: none!important;}
 #fullscreen_player::-webkit-scrollba:horizontalr {display: none!important;}
 #fullscreen_player::-webkit-scrollbar-thumb:horizontal {display: none!important;}
+/*new detail ui*/
+		#bg-yts {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			min-height: 500px;
+			height: auto;
+			-webkit-box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1);
+			-moz-box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1);
+			box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1);			
+		}
+		#head-detail {
+			width: 100%;
+			max-width: 1280px;
+			margin: 0 auto;			
+		}
+		#poster-yts {
+			height: auto;
+			min-height: 440px;
+			line-height: 400px;	
+			text-align: center;
+			position: relative;		
+		}
+		#poster-yts img{
+  			vertical-align: middle;
+			height: 345px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		p.title-yts-p {
+			text-align: center;
+		    font-size: 60px;
+		    color: #fff;
+		    font-family: 'Open Sans', sans-serif;
+		    font-weight: bold;
+		    text-align: center;
+		    line-height: 50px;
+		    letter-spacing: -1px;
+		    text-shadow: 0px 0px 10px black;
+		    min-height: 50px;
+		    height: auto;
+		    padding-top: 60px;
+		    display: block;
+		    clear: both;
+		}
+		#details {
+			height: 500px;
+			float: right;
+			position: relative;
+		}
+		@media (max-width: 991px) {
+			#details {
+				display: none;
+			}
+			#bg-yts-play {
+				top: 290px!important;
+			}
+		}
+		p.little-title-p {
+			color: #fff;
+		    font-family: 'Open Sans', sans-serif;
+			text-align: center;
+			font-size: 14px;
+			height: 20px;
+			position: relative;					
+		}
+		.title-yts-p {
+			width: 100%;
+		    text-align: center;
+		}
+		.title-yts-p span {
+		    color: #ffd700;
+		    font-size: 20px;
+		}		
+	
+		#bg-yts-play {
+			position: absolute;
+			left: 50%;
+			margin-left: -80px;
+			top: 250px;
+			z-index: 2;
+		}
