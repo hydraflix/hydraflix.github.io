@@ -28,23 +28,23 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         html += '<img class="hover-pointer" src="http://i.imgur.com/3n9rl.png" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)" style="position: relative; top:50%;left:50%;margin-top:-45px;margin-left:-45px;"/>';
         */
 
-        html + = '<div id="bg-yts" class="container-fluid" style="background-image: url('+id4+');">';
-        html + = '<img id="bg-yts-play" src="http://i.imgur.com/UDD2Qzj.png" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)">';
-        html + = '<div id="head-detail" class="row">';
-        html + = '<div id="title-yts" class="row">';
-        html + = '<p class="title-yts-p">'+movie.data.title+'</p>';
-        html + = '<div class="title-yts-p">';
-        html + = repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating));
-        html + = '</div>';
-        html + = '<p class="little-title-p">';
-        html + =  '['+movie.data.mpa_rating+'] '+movie.data.runtime+' - '+movie.data.genres[0]+' | '+movie.data.genres[1]+' '+movie.data.year; // '[R] 95 min - Action | Crime | Sci-Fi - 21 Septermber 2012 (USA)';
-        html + = '</p>';
-        html + = '</div>';
-        html + = '<div id="poster-yts" class="col-md-4">';
-        html + = '<img src="'+id3+'" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)">';
-        html + = '</div>';
-        html + = '</div>';
-        html + = '</div>';
+        html += '<div id="bg-yts" class="container-fluid" style="background-image: url('+id4+');">';
+        html += '<img id="bg-yts-play" src="http://i.imgur.com/UDD2Qzj.png" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)">';
+        html += '<div id="head-detail" class="row">';
+        html += '<div id="title-yts" class="row">';
+        html += '<p class="title-yts-p">'+movie.data.title+'</p>';
+        html += '<div class="title-yts-p">';
+        html += repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating));
+        html += '</div>';
+        html += '<p class="little-title-p">';
+        html +=  '['+movie.data.mpa_rating+'] '+movie.data.runtime+' - '+movie.data.genres[0]+' | '+movie.data.genres[1]+' '+movie.data.year; // '[R] 95 min - Action | Crime | Sci-Fi - 21 Septermber 2012 (USA)';
+        html += '</p>';
+        html += '</div>';
+        html += '<div id="poster-yts" class="col-md-4">';
+        html += '<img src="'+id3+'" onclick="f_play(&#39;'+movie.data.torrents[0].hash+'&#39;,&#39;'+movie.data.imdb_code+'&#39;)">';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
         /*
         api_number1 = Math.round(Math.random()*(6-0)+0); // The lefty number is the total quantity of element-1
         api_number2 = api_number1+1;
