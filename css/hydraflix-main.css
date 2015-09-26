@@ -342,3 +342,15 @@ div[id^="movie-rating-star-"] {
 	background-color: #013BA6;
 	height: 100px;
 }
+body::-webkit-scrollbar-track-piece:horizontal {display: none!important;}
+body::-webkit-scrollbar-track:horizontal {display: none!important;}
+body::-webkit-scrollbar:horizontal {display: none!important;}
+body::-webkit-scrollbar-thumb:horizontal {display: none!important;}
+#fullscreen_detail::-webkit-scrollbar-track-piece:horizontal {display: none!important;}
+#fullscreen_detail::-webkit-scrollbar-track:horizontal {display: none!important;}
+#fullscreen_detail::-webkit-scrollbar:horizontal display: none!important;{}
+#fullscreen_detail::-webkit-scrollbar-thumb:horizontal {display: none!important;}
+#fullscreen_player::-webkit-scrollbar-track-piece:horizontal {display: none!important;}
+#fullscreen_player::-webkit-scrollbar-track:horizontal {display: none!important;}
+#fullscreen_player::-webkit-scrollba:horizontalr {display: none!important;}
+#fullscreen_player::-webkit-scrollbar-thumb:horizontal {display: none!important;}
