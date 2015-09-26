@@ -37,7 +37,7 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         html += repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating));
         html += '</div>';
         html += '<p class="little-title-p">';
-        html +=  '['+movie.data.mpa_rating+'] '+movie.data.runtime+' - '+movie.data.genres[0]+' | '+movie.data.genres[1]+' '+movie.data.year; // '[R] 95 min - Action | Crime | Sci-Fi - 21 Septermber 2012 (USA)';
+        html +=  '('+movie.data.year+') ['+movie.data.mpa_rating+'] '+movie.data.runtime+' min. - '+movie.data.genres[0]; // '[R] 95 min - Action | Crime | Sci-Fi - 21 Septermber 2012 (USA)';
         html += '</p>';
         html += '</div>';
         html += '<div id="poster-yts" class="col-md-4">';
