@@ -27,7 +27,7 @@ function f_play(id,id2,id3) {
 					}
 				);	
 				function asignVariable(loadedUrl){
-					$("#images").html("<video id='example_video_" + id + num_aleatorio +"'  class='video-js vjs-default-skin' width='800' height='400' data-setup='{}'><source src='" + t_file.url_player + "' type='video/mp4' ><track kind='subtitles' src='"+loadedUrl+"' srclang='es' label='Español' charset='utf-8' type='text/srt'></track></video><p style='text-align: center; color: #ffffff; font-weight: bold; font-size: 12px;'>You are watching:" + t_file.name + "</p><br><div id='close' style='background: url(http://i.imgur.com/P7Svq.png);position: absolute; top: 50%; left: 50%; margin-top: -250px; margin-left: 400px;' onclick='closeThis()'></div>");
+					$("#images").html("<video id='example_video_" + id + num_aleatorio +"'  class='video-js vjs-default-skin' width='800' height='400' data-setup='{}'><source src='http://crossorigin.me/" + t_file.url_player + "' type='video/mp4' ><track kind='subtitles' src='"+loadedUrl+"' srclang='es' label='Español' charset='utf-8' type='text/srt'></track></video><p style='text-align: center; color: #ffffff; font-weight: bold; font-size: 12px;'>You are watching:" + t_file.name + "</p><br><div id='close' style='background: url(http://i.imgur.com/P7Svq.png);position: absolute; top: 50%; left: 50%; margin-top: -250px; margin-left: 400px;' onclick='closeThis()'></div>");
 					_V_(
 						('example_video_' + id + num_aleatorio),
 						{
