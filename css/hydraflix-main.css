@@ -40,12 +40,14 @@ img:hover {
 	height: 50px;
 	background-position: center;
 }
+/*
 #close:hover {
 	-webkit-box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 1);
 	-moz-box-shadow:    0px 0px 30px 2px rgba(255, 255, 255, 1);
 	box-shadow:         0px 0px 30px 2px rgba(255, 255, 255, 1);
 	border-radius: 50%;
-}	
+}
+*/
 .title {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
@@ -435,4 +437,7 @@ body::-webkit-scrollbar-thumb:horizontal {display: none!important;}
 			margin-left: -80px;
 			top: 250px;
 			z-index: 2;
+		}
+		#bg-yts-play:hover {
+			cursor: pointer;
 		}
