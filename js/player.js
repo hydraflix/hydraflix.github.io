@@ -8,39 +8,54 @@ function f_play(id,id2,id3) {
 	var id2 = id2;
 	var urlZipSrt;
 	$.getJSON("http://api.furk.net/api/dl/add?info_hash=" + id + "&t_files=1&api_key=" + api_key_var + jsonp_var, function(data){
-		$.each(data.files, function(i,file){
-			$.each(file.t_files, function(i,t_file){
-				var loadedUrl = "";	
-				$.getJSON("http://crossorigin.me/http://api.yifysubtitles.com/subs/"+id2,
-					function(data){
+		var dl_status = data.torrent.dl_status;
+		if (dl_status == "active") {
+			$("#fullscreen_player").attr('class','fullscreen_player_in');			
+			$("#images").html('<div class="row"><p id="dl_status_active-error" class="btn btn-primary btn-lg" onclick="closeThis()" role="button" title="Click for close this.">Sorry!, but it is not yet available. Please try again in a few hours.</p>'+'<div id="close" style="background: url(http://i.imgur.com/P7Svq.png);position: absolute; top: 50%; left: 50%; margin-top: -250px; margin-left: 400px;" onclick="closeThis()"></div></div>');
+			$.getJSON("http://api.furk.net/api/dl/add?info_hash=" + id + "&t_files=1&api_key=6bfa3dcea2a98224182cd3f146603b24685d8de0" + jsonp_var, function(data){});
+		}
+		else {
+			$.each(data.files, function(i,file){
+				$.each(file.t_files, function(i,t_file){
+					var loadedUrl = "";
+					$.getJSON("http://crossorigin.me/http://api.yifysubtitles.com/subs/"+id2, function(data){
 						var ttID = id2;
-						urlZipSrt = data.subs[ttID].spanish[0].url;
-						var loader = new ZipLoader('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt);
-						var loaded;
-						loader.getEntries('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt).forEach(function(entry) {
-							loaded = loader.load('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt+"://"+entry.name());
-						});
-						var blob = new Blob( [ loaded ], { type: "text/srt" });
-						var urlCreator = window.URL || window.webkitURL;
-						loadedUrl = urlCreator.createObjectURL( blob );
-						asignVariable(loadedUrl);
-					}
-				);	
-				function asignVariable(loadedUrl){
-					$("#images").html("<video id='example_video_" + id + num_aleatorio +"'  class='video-js vjs-default-skin' width='800' height='400' data-setup='{}'><source src='" + t_file.url_player + "' type='video/mp4' ><track kind='subtitles' src='"+loadedUrl+"' srclang='es' label='Español' charset='utf-8' type='text/srt'></track></video><p style='text-align: center; color: #ffffff; font-weight: bold; font-size: 12px;'>You are watching:" + t_file.name + "</p><br><div id='close' style='background: url(http://i.imgur.com/P7Svq.png);position: absolute; top: 50%; left: 50%; margin-top: -250px; margin-left: 400px;' onclick='closeThis()'></div>"); // http://crossorigin.me/ ?
-					_V_(
-						('example_video_' + id + num_aleatorio),
-						{
-							'autoplay': true,
-							'controls': true,
-							'preload': 'auto'
-						}  
-					);
-				}
-				$("#fullscreen_player").attr('class','fullscreen_player_in');            
-				if ( i == 0 ) return false;
+						urlZipSrt = data.subs[ttID].spanish;
+						if (urlZipSrt == undefined) {
+							var loaded;
+							loaded = "1\n00:00:00,000 --> 01:00:00,000\nNo hay subtitulos disponibles.";
+							var blob = new Blob( [ loaded ], { type: "text/srt" });
+							var urlCreator = window.URL || window.webkitURL;
+							loadedUrl = urlCreator.createObjectURL( blob );
+							$("track#hydraflix-es").attr("src", loadedUrl);
+						}
+						else {
+							urlZipSrt = data.subs[ttID].spanish[0].url;
+							var loader = new ZipLoader('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt);
+							var loaded;
+							loader.getEntries('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt).forEach(function(entry) {
+								loaded = loader.load('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt+"://"+entry.name());
+							});
+							var blob = new Blob( [ loaded ], { type: "text/srt" });
+							var urlCreator = window.URL || window.webkitURL;
+							loadedUrl = urlCreator.createObjectURL( blob );
+							$("track#hydraflix-es").attr("src", loadedUrl);
+						}
+						$("#images").html("<video id='example_video_" + id + num_aleatorio +"'  class='video-js vjs-default-skin' width='800' height='400' data-setup='{}'><source src='" + t_file.url_player + "' type='video/mp4' ><track id='hydraflix-es' kind='subtitles' src='"+loadedUrl+"' srclang='es' label='ES' charset='utf-8' type='text/srt'></track></video><br><div id='close' style='background: url(http://i.imgur.com/P7Svq.png);position: absolute; top: 50%; left: 50%; margin-top: -250px; margin-left: 400px;' onclick='closeThis()'></div>"); // http://crossorigin.me/ ?
+						_V_(
+							('example_video_' + id + num_aleatorio),
+							{
+								'autoplay': true,
+								'controls': true,
+								'preload': 'auto'
+							}  
+						);	
+						$("#fullscreen_player").attr('class','fullscreen_player_in');
+					});
+					if ( i == 0 ) return false;
+				}); 
 			}); 
-		}); 
+		}
 	});
 };
 function closeThis() {
