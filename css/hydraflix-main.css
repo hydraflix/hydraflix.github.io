@@ -444,3 +444,15 @@ body::-webkit-scrollbar-thumb:horizontal {display: none!important;}
 		#bg-yts-play:hover {
 			cursor: pointer;
 		}
+		#dl_status_active-error {
+			background: #ff005a;
+			border-radius: 0px;
+			border: 0;
+			font-weight: bold;
+			margin: 0 auto;
+			min-width: 800px;
+    		width: 100%;
+		}
+		#dl_status_active-error:hover {
+			background: #BF0043;
+		}
