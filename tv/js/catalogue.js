@@ -14,12 +14,10 @@ $(function () {
 		// obtener la lista de shows populares, hacerle un endless scrolling
             // https://api-v2launch.trakt.tv/shows/popular
             // docs: http://docs.trakt.apiary.io/#reference/shows/popular/get-popular-shows		
-		 $.get("https://api-v2launch.trakt.tv/shows/popular/?trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
 		
-		/*
 		var request = new XMLHttpRequest();
 
-		request.open('GET', 'http://api.staging.trakt.tv');
+		request.open('GET', 'http://api.staging.trakt.tv', false);
 
 		request.setRequestHeader('Content-Type', 'application/json');
 		request.setRequestHeader('trakt-api-version', '2');
@@ -30,11 +28,13 @@ $(function () {
 		    console.log('Status:', this.status);
 		    console.log('Headers:', this.getAllResponseHeaders());
 		    console.log('Body:', this.responseText);
+		    console.log(request.responseText)
 		  }
 		};
 
 		request.send();
-		*/
+		
+		 $.get("https://api-v2launch.trakt.tv/shows/popular/?trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
 		console.log(data);
 			/*
 			yify = data;
