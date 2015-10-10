@@ -18,6 +18,8 @@ function f_play(id,id2,id3) {
 			$.each(data.files, function(i,file){
 				$.each(file.t_files, function(i,t_file){
 					var loadedUrl = "";
+					// para cada uno obtener info hash y agregarlo a furk
+            // http://eztvapi.re/show/tt2575988
 					$.getJSON("http://crossorigin.me/http://api.yifysubtitles.com/subs/"+id2, function(data){
 						// #ToDo: make if (data == undefined) {} else if
 						var ttID = id2;
@@ -31,6 +33,27 @@ function f_play(id,id2,id3) {
 							$("track#hydraflix-es").attr("src", loadedUrl);
 						}
 						else {
+							/*integrar*/
+								// OPENSUBTITLES DIRECT WAY
+								// http://www.opensubtitles.org/en/search/sublanguageid-spa/tag-mr+robot+s01e05
+								// #search_results
+								// this works:
+								$(document).ready(function() {
+								var query = "new girl s03e08";
+								var url = 'http://crossorigin.me/http://www.opensubtitles.org/es/search/sublanguageid-spa/tag-house+of+cards+s02e05';   
+								    $.get(url, function (data) {
+								      var $data = $(data); //turn ajax response (string) into JQuery collection
+								        isRunning = $data.find("td[id^='main']").html();
+								        // #ToDo: if isRunning == undefinied entonces probar la otra url a desarrollar, mientras tanto poner no hay subtitulo disponible
+								        var re = /.*subtitles\/(.*)\/.*/;
+								        //var re2 = /.*org\/es\/download\/sub\/(.*)">.*/
+								        var newtext = isRunning.replace(re, "$1").substring(0, 7);
+								        newtext
+								        $("#url").append(newtext);
+								        // http://dl.opensubtitles.org/spa/download/sub/6248329
+								    });
+								});
+							/*integrar*/
 							urlZipSrt = data.subs[ttID].spanish[0].url;
 							var loader = new ZipLoader('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt);
 							var loaded;

@@ -4,12 +4,18 @@ $(function () {
 	var pageToSave = JSON.stringify(page);
 	localStorage.setItem("pagina", pageToSave);
 	function loadMore() {
+		var api_key = "c57ec9f21a63536bfc1faf3a8897b3bde8fab719546650e6870eceaa96b26634";
 		var page = localStorage.getItem("pagina");
 		page = parseInt(page);
 		page = page+1;
 		var pageToSave = JSON.stringify(page)
-		localStorage.setItem("pagina", pageToSave);			
-		$.get("https://yts.to/api/v2/list_movies.json?limit="+limit_items+"&page="+page+"&order_by=desc&sort_by=year", function (data) {
+		localStorage.setItem("pagina", pageToSave);	
+		// obtener la lista de shows populares, hacerle un endless scrolling
+            // https://api-v2launch.trakt.tv/shows/popular
+            // docs: http://docs.trakt.apiary.io/#reference/shows/popular/get-popular-shows		
+		$.get("https://api-v2launch.trakt.tv/shows/popular?trakt-api-key="+api_key, function (data) {
+			console.log(data);
+			/*
 			yify = data;
 			i = 0;
 			var html = "";
@@ -31,6 +37,7 @@ $(function () {
 			});	
 			page=page++;
 			$('#movies').append(html);
+			*/
 		});
 	};				
 	$(window).scroll(function() {

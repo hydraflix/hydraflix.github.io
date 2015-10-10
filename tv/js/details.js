@@ -12,6 +12,13 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         var repeat = function (s, n, d) {
             return --n ? s + (d || "") + repeat(s, n, d) : "" + s;
         };
+
+            // obtener lista de episodios y temporadas
+        // http://api.tvmaze.com/shows/1871/episodes
+                // para cada uno obtener poster y background
+        // http://api.tvmaze.com/episodes/167387
+
+
         movie_rating_star = '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>';
         movie_rating_star_empty = '<span class="glyphicon glyphicon-star" aria-hidden="true" style="color:#000;"></span>';
         movie_rating = Math.round(id5);
