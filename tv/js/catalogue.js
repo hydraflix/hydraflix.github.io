@@ -26,10 +26,17 @@ $(function () {
 		request.onreadystatechange = function () {
 		  if (this.readyState === 4) {
 		  	//var data = {};
-		  	console.log(request.responseText);
+		  	// console.log(request.responseText);
 		    var data = $.parseJSON(request.responseText);
 		    $.each(data, function (i, movie) {
 		    	console.log("Title: "+movie.title);
+		    	console.log("Year: "+movie.year);
+		    	console.log("Trakt: "+movie.ids.trakt);
+		    	console.log("Slug: "+movie.ids.slug);
+		    	console.log("TVdb: "+movie.ids.tvdb);
+		    	console.log("IMDB: "+movie.ids.imdb);
+		    	console.log("TMDB: "+movie.ids.tmdb);
+		    	console.log("TVRage: "+movie.ids.tvrage);
 		    });
 		  }
 		};
