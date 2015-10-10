@@ -26,6 +26,7 @@ $(function () {
 		request.onreadystatechange = function () {
 		  if (this.readyState === 4) {
 		  	//var data = {};
+		  	console.log(data);
 		    var data = $.parseJSON(request.responseText);
 		    $.each(data, function (i, movie) {
 		    	console.log("Title: "+movie.title);
