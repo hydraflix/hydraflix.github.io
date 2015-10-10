@@ -39,7 +39,7 @@ $(function () {
 		    	console.log("TVRage: "+movie.ids.tvrage);
 				// http://eztvapi.re/show/tt2575988
 				$.getJSON("http://crossorigin.me/http://eztvapi.re/show/"+movie.ids.imdb, function (data) {
-					console.log(data.episodes.torrents[0].url);
+					console.log(data.episodes);
 				});    	
 		    });
 		  }
