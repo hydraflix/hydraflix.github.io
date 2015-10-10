@@ -25,15 +25,16 @@ $(function () {
 
 		request.onreadystatechange = function () {
 		  if (this.readyState === 4) {
+		  	//var data = {};
 		    var data = request.responseText;
-		    console.log(data);
+		    console.log("XMLHttpRequest data: "+data);
 		  }
 		};
 
 		request.send();
 		
-		// $.get("https://api-v2launch.trakt.tv/shows/popular/?trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
-		//console.log(data);
+		$.getJSON("http://api.staging.trakt.tv/shows/popular?page="+page+"&limit="+limit_items+"&trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
+		console.log("getJSON data: "+data);
 			/*
 			yify = data;
 			i = 0;
@@ -57,7 +58,7 @@ $(function () {
 			page=page++;
 			$('#movies').append(html);
 			*/
-		// });
+		});
 	};				
 	$(window).scroll(function() {
 		if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
