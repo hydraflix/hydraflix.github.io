@@ -35,7 +35,7 @@ $(function () {
 
 		request.send();
 		*/
-		//console.log(data);
+		console.log(data);
 			/*
 			yify = data;
 			i = 0;
