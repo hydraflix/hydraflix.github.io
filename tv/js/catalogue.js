@@ -17,7 +17,7 @@ $(function () {
 		// $.get("https://api-v2launch.trakt.tv/shows/popular/?trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
 		var request = new XMLHttpRequest();
 
-		request.open('GET', 'https://api-v2launch.trakt.tv/shows/popular');
+		request.open('GET', 'http://api.staging.trakt.tv');
 
 		request.setRequestHeader('Content-Type', 'application/json');
 		request.setRequestHeader('trakt-api-version', '2');
