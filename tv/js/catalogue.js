@@ -21,7 +21,7 @@ $(function () {
 
 		request.setRequestHeader('Content-Type', 'application/json');
 		request.setRequestHeader('trakt-api-version', '2');
-		request.setRequestHeader('trakt-api-key', api_key;
+		request.setRequestHeader('trakt-api-key', api_key);
 
 		request.onreadystatechange = function () {
 		  if (this.readyState === 4) {
