@@ -17,7 +17,7 @@ $(function () {
 		
 		var request = new XMLHttpRequest();
 
-		request.open('GET', 'https://api-v2launch.trakt.tv/shows/popular', false);
+		request.open('GET', 'https://api-v2launch.trakt.tv/shows/popular/', false);
 
 		request.setRequestHeader('Content-Type', 'application/json');
 		request.setRequestHeader('trakt-api-version', '2');
