@@ -25,10 +25,8 @@ $(function () {
 
 		request.onreadystatechange = function () {
 		  if (this.readyState === 4) {
-		    console.log('Status:', this.status);
-		    console.log('Headers:', this.getAllResponseHeaders());
-		    console.log('Body:', this.responseText);
-		    console.log(request.responseText)
+		    var data = request.responseText;
+		    console.log(data);
 		  }
 		};
 
