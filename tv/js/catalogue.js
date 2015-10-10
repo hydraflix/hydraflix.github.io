@@ -14,8 +14,26 @@ $(function () {
 		// obtener la lista de shows populares, hacerle un endless scrolling
             // https://api-v2launch.trakt.tv/shows/popular
             // docs: http://docs.trakt.apiary.io/#reference/shows/popular/get-popular-shows		
-		$.get("https://api-v2launch.trakt.tv/shows/popular/?trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
-			console.log(data);
+		// $.get("https://api-v2launch.trakt.tv/shows/popular/?trakt-api-key="+api_key+"&trakt-api-version="+api_version, function (data) {
+		var request = new XMLHttpRequest();
+
+		request.open('GET', 'https://api-v2launch.trakt.tv/shows/popular');
+
+		request.setRequestHeader('Content-Type', 'application/json');
+		request.setRequestHeader('trakt-api-version', '2');
+		request.setRequestHeader('trakt-api-key', api_key;
+
+		request.onreadystatechange = function () {
+		  if (this.readyState === 4) {
+		    console.log('Status:', this.status);
+		    console.log('Headers:', this.getAllResponseHeaders());
+		    console.log('Body:', this.responseText);
+		  }
+		};
+
+		request.send();
+
+		//console.log(data);
 			/*
 			yify = data;
 			i = 0;
@@ -39,7 +57,7 @@ $(function () {
 			page=page++;
 			$('#movies').append(html);
 			*/
-		});
+		// });
 	};				
 	$(window).scroll(function() {
 		if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
