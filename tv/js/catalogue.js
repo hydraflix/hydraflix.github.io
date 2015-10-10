@@ -26,7 +26,7 @@ $(function () {
 		request.onreadystatechange = function () {
 		  if (this.readyState === 4) {
 		  	//var data = {};
-		    var data = request.responseText;
+		    var data = $.parseJSON(request.responseText);
 		    $.each(data, function (i, movie) {
 		    	console.log("Title: "+movie.title);
 		    });
@@ -70,7 +70,7 @@ $(function () {
 	$(document).ready(function() {
 		loadMore();
 	});
-});
+})
 function hoverHash(hash) {
 	$("#movie-rating-star-"+hash).css("visibility", "visible");
 }	
