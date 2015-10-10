@@ -38,7 +38,7 @@ $(function () {
 		    	console.log("TMDB: "+movie.ids.tmdb);
 		    	console.log("TVRage: "+movie.ids.tvrage);
 				// http://eztvapi.re/show/tt2575988
-				$.getJSON("http://eztvapi.re/show/"+movie.ids.imdb, function (data) {
+				$.getJSON("http://crossorigin.me/http://eztvapi.re/show/"+movie.ids.imdb, function (data) {
 					// console.log(data.torrents.720p.url);
 				});    	
 		    });
