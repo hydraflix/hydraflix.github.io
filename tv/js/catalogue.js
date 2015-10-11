@@ -32,9 +32,11 @@ $(function () {
 		    i = 0;
 			var movie = "";
 			var hash = "";
+			var fanart = ""; 
+			var poster = "";
 		    $.each(data, function (i, movie) {
-		    	var fanart = movie.images.fanart.thumb;
-		    	var poster = movie.images.poster.thumb;
+		    	fanart = movie.images.fanart.thumb;
+		    	poster = movie.images.poster.thumb;
 				/*movie_rating = Math.round(movie.rating);
 				var repeat = function (s, n, d) {
 					return --n ? s + (d || "") + repeat(s, n, d) : "" + s;
