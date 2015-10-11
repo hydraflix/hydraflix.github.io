@@ -35,8 +35,8 @@ $(function () {
 			var fanart = ""; 
 			var poster = "";
 		    $.each(data, function (i, movie) {
-		    	fanart = movie.images.fanart.thumb;
-		    	poster = movie.images.poster.thumb;
+		    	fanart = movie.images.fanart.medium;
+		    	poster = movie.images.poster.medium;
 				/*movie_rating = Math.round(movie.rating);
 				var repeat = function (s, n, d) {
 					return --n ? s + (d || "") + repeat(s, n, d) : "" + s;
