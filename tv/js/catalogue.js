@@ -1,6 +1,6 @@
 $(function () {
 	var limit_items = 24; // 12, 24, 48 (bootstrap friendly query must be divisible for 1, 2, 3 and 4)
-	var page = 1;
+	var page = 0;
 	var pageToSave = JSON.stringify(page);
 	localStorage.setItem("pagina", pageToSave);
 	function loadMore() {
@@ -9,7 +9,7 @@ $(function () {
 		page = page+1;
 		var pageToSave = JSON.stringify(page)
 		localStorage.setItem("pagina", pageToSave);			
-		$.get("http://eztvapi.re/shows/"+page, function (data) {
+		$.get("http://crossorigin.me/http://eztvapi.re/shows/"+page, function (data) {
 			yify = data;
 			i = 0;
 			var html = "";
