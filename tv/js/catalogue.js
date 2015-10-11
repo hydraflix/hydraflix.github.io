@@ -17,7 +17,7 @@ $(function () {
 		
 		var request = new XMLHttpRequest();
 
-		request.open('GET', 'http://api.staging.trakt.tv/shows/popular?page='+page+'&limit='+limit_items+'?extended=images', false);
+		request.open('GET', 'http://api.staging.trakt.tv/shows/popular?page='+page+'&limit='+limit_items+'&extended=images', false);
 
 		request.setRequestHeader('Content-Type', 'application/json');
 		request.setRequestHeader('trakt-api-version', '2');
