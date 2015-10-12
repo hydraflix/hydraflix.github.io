@@ -1,7 +1,7 @@
 function f_play(id,id2,id3) {
-	api_number1 = Math.round(Math.random()*(6-0)+0); // The lefty number is the total quantity of element-1
+	api_number1 = Math.round(Math.random()*(8-0)+0); // The lefty number is the total quantity of element-1
 	api_number2 = api_number1+1;
-	api_list = ["93979e5200c4e0c9f75a516dec8dfe0180a785b2", "fae4a7c8bc2dd28f7d505a67f6b6efd33869733d", "35221d40fb165ebe1bcb2fd0af6e102b563dd906", "d925f3c996b41ad878a0b592d4dacc579db0e2ba", "bf5a6aff46a86d36779d3af00d004f4fd19368c0", "369cb28d46df42881bd2aa1373544e3dc46ec062", "5b3018cd4332f3783cd6a8e32c461cf425ed3759"];
+	api_list = ["93979e5200c4e0c9f75a516dec8dfe0180a785b2", "fae4a7c8bc2dd28f7d505a67f6b6efd33869733d", "35221d40fb165ebe1bcb2fd0af6e102b563dd906", "d925f3c996b41ad878a0b592d4dacc579db0e2ba", "bf5a6aff46a86d36779d3af00d004f4fd19368c0", "369cb28d46df42881bd2aa1373544e3dc46ec062", "5b3018cd4332f3783cd6a8e32c461cf425ed3759", "2cd13aee728654ab34407cf2c6669fb57d954b1e", "6bfa3dcea2a98224182cd3f146603b24685d8de0"];
 	api_key_var = api_list.slice(api_number1,api_number2);
 	var num_aleatorio = Math.floor(Math.random() * 51) + 25;
 	jsonp_var = ";jsonp=?";
