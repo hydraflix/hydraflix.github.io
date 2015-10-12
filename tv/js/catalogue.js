@@ -30,6 +30,7 @@ $(function () {
 					html_rating = movie_rating_star.repeat(movie_rating)+movie_rating_star_empty.repeat(10 - movie_rating);
 					console.log("html_rating: "+html_rating);
 					$("#movie-rating-star-"+imdb).html(html_rating);
+					console.log("#movie-rating-star-+imdb: "+"#movie-rating-star-"+imdb);
 				});				
 				i++;
 			});	
