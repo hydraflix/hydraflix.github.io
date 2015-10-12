@@ -14,28 +14,22 @@ $(function () {
 			i = 0;
 			var html = "";
 			var imdb = "";
+			var repeat = function (s, n, d) {
+				return --n ? s + (d || "") + repeat(s, n, d) : "" + s;
+			};			
 			$.each(data, function (i, movie) {
 				imdb = movie.imdb_id;
-				/*
 				$.get("http://www.omdbapi.com/?i="+imdb+"&plot=full&r=json", function (data) {
-	
-				});
-				*/
-				
-				movie_rating = Math.round(movie.rating);
-				//var repeat = function (s, n, d) {
-				//	return --n ? s + (d || "") + repeat(s, n, d) : "" + s;
-				//};
-				movie_rating_star = '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>';
-				movie_rating_star_empty = '<span class="glyphicon glyphicon-star" aria-hidden="true" style="color:#000;"></span>';
-				/*
-				BLUR!!!
-				*/
-				html+='<div id="movie-box-'+'" class="movie-box movie-box-'+' col-lg-3 col-md-4 col-sm-6 col-xs-12" style="position:relative;float:left;">';
-				html+='<div style="width: 100%; height: 330px; position: absolute;left: 0px; top: 0px; -webkit-filter: blur(3px); -moz-filter: blur(3px); -o-filter: blur(3px); -ms-filter: blur(3px); filter: blur(3px);; background-image:url(http://crossorigin.me/'+movie.images.fanart+'); background-position: center; background-size: cover;  background-repeat: no-repeat; -webkit-box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1); -moz-box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1); box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1);"></div>';
-				html+='<img id="img-movie-box-'+'" class="hover-luz" title="'+'" alt="'+'" src="http://crossorigin.me/'+movie.images.poster+'" style="width: 100%; max-width: 180px; height: 270px; position: relative;" onmouseover="hoverHash(&#39;'+'&#39;)" onmouseout="outHash(&#39;'+'&#39;)" onclick="f_play_detalle(&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;); scrollDetails(&#39;'+'&#39;);"/><div id="movie-rating-star-'+'" class="movie_rating_star">'+'</div></div>';
-				// html+='<div id="movie-box-'+movie.torrents[0].hash+'" class="movie-box movie-box-'+movie.genres[0]+' col-lg-3 col-md-4 col-sm-6 col-xs-12" style="background-image:url('+movie.background_image+');background-position:center;background-size:cover;background-repeat:no-repeat;position:relative;float:left;"><img id="img-movie-box-'+movie.torrents[0].hash+'" class="hover-luz" title="'+movie.title+'" alt="'+movie.title+'" src="'+movie.medium_cover_image+'" style="width: 100%; max-width: 180px; position: relative;" onmouseover="hoverHash(&#39;'+hash+'&#39;)" onmouseout="outHash(&#39;'+hash+'&#39;)" onclick="f_play_detalle(&#39;'+movie.torrents[0].hash+'&#39;,&#39;'+movie.id+'&#39;,&#39;'+movie.medium_cover_image+'&#39;,&#39;'+movie.background_image+'&#39;,&#39;'+movie.rating+'&#39;); scrollDetails(&#39;'+hash+'&#39;);"/><div id="movie-rating-star-'+movie.torrents[0].hash+'" class="movie_rating_star">'+repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating))+'</div></div>';
+					movie_rating = Math.round(data.imdbRating);
+					movie_rating_star = '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>';
+					movie_rating_star_empty = '<span class="glyphicon glyphicon-star" aria-hidden="true" style="color:#000;"></span>';
+					
+					html+='<div id="movie-box-'+'" class="movie-box movie-box-'+' col-lg-3 col-md-4 col-sm-6 col-xs-12" style="position:relative;float:left;">';
+					html+='<div style="width: 100%; height: 330px; position: absolute;left: 0px; top: 0px; -webkit-filter: blur(3px); -moz-filter: blur(3px); -o-filter: blur(3px); -ms-filter: blur(3px); filter: blur(3px);; background-image:url(http://crossorigin.me/'+movie.images.fanart+'); background-position: center; background-size: cover;  background-repeat: no-repeat; -webkit-box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1); -moz-box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1); box-shadow: inset 0px 0px 30px 30px rgba(0, 0, 0, 1);"></div>';
+					html+='<img id="img-movie-box-'+'" class="hover-luz" title="'+'" alt="'+'" src="http://crossorigin.me/'+movie.images.poster+'" style="width: 100%; max-width: 180px; height: 270px; position: relative;" onmouseover="hoverHash(&#39;'+'&#39;)" onmouseout="outHash(&#39;'+'&#39;)" onclick="f_play_detalle(&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;); scrollDetails(&#39;'+'&#39;);"/><div id="movie-rating-star-'+'" class="movie_rating_star">'+repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating))+'</div></div>';
+					// html+='<div id="movie-box-'+movie.torrents[0].hash+'" class="movie-box movie-box-'+movie.genres[0]+' col-lg-3 col-md-4 col-sm-6 col-xs-12" style="background-image:url('+movie.background_image+');background-position:center;background-size:cover;background-repeat:no-repeat;position:relative;float:left;"><img id="img-movie-box-'+movie.torrents[0].hash+'" class="hover-luz" title="'+movie.title+'" alt="'+movie.title+'" src="'+movie.medium_cover_image+'" style="width: 100%; max-width: 180px; position: relative;" onmouseover="hoverHash(&#39;'+hash+'&#39;)" onmouseout="outHash(&#39;'+hash+'&#39;)" onclick="f_play_detalle(&#39;'+movie.torrents[0].hash+'&#39;,&#39;'+movie.id+'&#39;,&#39;'+movie.medium_cover_image+'&#39;,&#39;'+movie.background_image+'&#39;,&#39;'+movie.rating+'&#39;); scrollDetails(&#39;'+hash+'&#39;);"/><div id="movie-rating-star-'+movie.torrents[0].hash+'" class="movie_rating_star">'+repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating))+'</div></div>';
 				i++;
+				});
 			});	
 			page=page++;
 			$('#movies').append(html);
