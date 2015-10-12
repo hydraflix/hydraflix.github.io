@@ -16,9 +16,9 @@ $(function () {
 			var imdb = "";			
 			$.each(data, function (i, movie) {
 				imdb = movie.imdb_id;
-				var repeat = function (s, n, d) {
+				/*var repeat = function (s, n, d) {
 						return --n ? s + (d || "") + repeat(s, n, d) : "" + s;
-				};					
+				};*/					
 				$.get("http://www.omdbapi.com/?i="+imdb+"&plot=full&r=json", function (data) {
 									
 					movie_rating = Math.round(data.imdbRating);
