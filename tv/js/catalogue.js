@@ -30,10 +30,11 @@ $(function () {
 					html+='<img id="img-movie-box-'+'" class="hover-luz" title="'+'" alt="'+'" src="http://crossorigin.me/'+movie.images.poster+'" style="width: 100%; max-width: 180px; height: 270px; position: relative;" onmouseover="hoverHash(&#39;'+'&#39;)" onmouseout="outHash(&#39;'+'&#39;)" onclick="f_play_detalle(&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;,&#39;'+'&#39;); scrollDetails(&#39;'+'&#39;);"/><div id="movie-rating-star-'+'" class="movie_rating_star">'+'</div></div>'; // repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating))
 					// html+='<div id="movie-box-'+movie.torrents[0].hash+'" class="movie-box movie-box-'+movie.genres[0]+' col-lg-3 col-md-4 col-sm-6 col-xs-12" style="background-image:url('+movie.background_image+');background-position:center;background-size:cover;background-repeat:no-repeat;position:relative;float:left;"><img id="img-movie-box-'+movie.torrents[0].hash+'" class="hover-luz" title="'+movie.title+'" alt="'+movie.title+'" src="'+movie.medium_cover_image+'" style="width: 100%; max-width: 180px; position: relative;" onmouseover="hoverHash(&#39;'+hash+'&#39;)" onmouseout="outHash(&#39;'+hash+'&#39;)" onclick="f_play_detalle(&#39;'+movie.torrents[0].hash+'&#39;,&#39;'+movie.id+'&#39;,&#39;'+movie.medium_cover_image+'&#39;,&#39;'+movie.background_image+'&#39;,&#39;'+movie.rating+'&#39;); scrollDetails(&#39;'+hash+'&#39;);"/><div id="movie-rating-star-'+movie.torrents[0].hash+'" class="movie_rating_star">'+repeat(movie_rating_star, movie_rating)+repeat(movie_rating_star_empty, (10 - movie_rating))+'</div></div>';
 					i++;
+					$('#movies').append(html);
 				});
 			});	
 			page=page++;
-			$('#movies').append(html);
+			
 		});
 	};				
 	$(window).scroll(function() {
