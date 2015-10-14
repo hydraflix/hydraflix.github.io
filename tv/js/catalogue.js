@@ -14,7 +14,7 @@ $(function () {
 			&order=1 or &order=-1
 			shows/1?keywords=
 		*/			
-		$.get("http://crossorigin.me/http://eztvapi.re/shows/"+page+"?sort=Updated", function (data) {
+		$.get("http://crossorigin.me/http://eztvapi.re/shows/"+page+"?sort=year&order=1", function (data) {
 			i = 0;
 			var html = "";
 			$.each(data, function (i, movie) {			
