@@ -8,8 +8,13 @@ $(function () {
 		page = parseInt(page);
 		page = page+1;
 		var pageToSave = JSON.stringify(page)
-		localStorage.setItem("pagina", pageToSave);			
-		$.get("http://crossorigin.me/http://eztvapi.re/shows/"+page, function (data) {
+		localStorage.setItem("pagina", pageToSave);
+		/*
+			?sort=  // Name  - Year - Updated 
+			&order=1 or &order=-1
+			shows/1?keywords=
+		*/			
+		$.get("http://crossorigin.me/http://eztvapi.re/shows/"+page+"?sort=Updated", function (data) {
 			i = 0;
 			var html = "";
 			$.each(data, function (i, movie) {			
