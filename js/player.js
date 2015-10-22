@@ -19,10 +19,8 @@ function f_play(id,id2,id3) {
 				$.each(file.t_files, function(i,t_file){
 					var loadedUrl = "";
 					$.getJSON("http://crossorigin.me/http://api.yifysubtitles.com/subs/"+id2, function(data){
-						// #ToDo: make if (data == undefined) {} else if
 						var ttID = id2;
-						urlZipSrt = data.subs[ttID].spanish;
-						if (urlZipSrt == undefined) {
+						if (data === undefined || data === null || data === "" || data.subs === undefined || data.subs === null || data.subs === "" || data.subs[ttID].spanish === undefined || data.subs[ttID].spanish === null || data.subs[ttID].spanish === "" ) {
 							var loaded;
 							loaded = "1\n00:00:00,000 --> 01:00:00,000\nNo hay subtitulos disponibles.";
 							var blob = new Blob( [ loaded ], { type: "text/srt" });
