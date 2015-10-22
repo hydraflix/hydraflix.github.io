@@ -8,6 +8,7 @@
 }
 body {
 	overflow-x: hidden;
+	background: #000000;
 }
 body::-webkit-scrollbar-track-piece {
   background-color: #000000;
