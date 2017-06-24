@@ -55,7 +55,7 @@ function f_play_detalle(id,id2,id3,id4,id5) {
         var num_aleatorio = Math.floor(Math.random() * 51) + 25;
         jsonp_var = ";jsonp=?";            
         $.getJSON("http://api.furk.net/api/dl/add?info_hash=" + movie.data.torrents[0].hash + "&t_files=1&api_key=" + api_key_var + jsonp_var, function(data){
-            $("#html_bg_play").css('background-image', 'url(http://crossorigin.me/'+data.files[0].ss_urls[4]+')');
+            $("#html_bg_play").css('background-image', 'url('+data.files[0].ss_urls[4]+')');
         });
         html += '</div>';
         html += '</div>';
