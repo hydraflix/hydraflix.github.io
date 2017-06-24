@@ -18,7 +18,7 @@ function f_play(id,id2,id3) {
 			$.each(data.files, function(i,file){
 				$.each(file.t_files, function(i,t_file){
 					var loadedUrl = "";
-					$.getJSON("http://crossorigin.me/http://api.yifysubtitles.com/subs/"+id2, function(data){
+					$.getJSON("http://api.yifysubtitles.com/subs/"+id2, function(data){
 						var ttID = id2;
 						if (data === undefined || data === null || data === "" || data.subs === undefined || data.subs === null || data.subs === "" || data.subs[ttID].spanish === undefined || data.subs[ttID].spanish === null || data.subs[ttID].spanish === "" ) {
 							var loaded;
@@ -30,10 +30,10 @@ function f_play(id,id2,id3) {
 						}
 						else {
 							urlZipSrt = data.subs[ttID].spanish[0].url;
-							var loader = new ZipLoader('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt);
+							var loader = new ZipLoader('http://yifysubtitles.com'+urlZipSrt);
 							var loaded;
-							loader.getEntries('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt).forEach(function(entry) {
-								loaded = loader.load('http://crossorigin.me/http://yifysubtitles.com'+urlZipSrt+"://"+entry.name());
+							loader.getEntries('http://yifysubtitles.com'+urlZipSrt).forEach(function(entry) {
+								loaded = loader.load('http://yifysubtitles.com'+urlZipSrt+"://"+entry.name());
 							});
 							var blob = new Blob( [ loaded ], { type: "text/srt" });
 							var urlCreator = window.URL || window.webkitURL;
