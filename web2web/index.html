@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web2Web Bootstrap</title>
+	<meta charset="utf-8">
+</head>
+
+
+<body>
+	<h1>Loading ...</h1>
+	<p>This may take a minute or two.</p>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webtorrent/0.96.4/webtorrent.min.js"></script>
+	<script>
+
+		var CONFIG = {
+			btcAddress: '1DhDyqB4xgDWjZzfbYGeutqdqBhSF7tGt4',
+			magnetBase: 'magnet:?dn=index.html&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&xt=urn:btih:'
+		}
+
+
+		$(document).ready(function() {
+
+			// get transactions for given bitcoin address
+			$.get('https://blockexplorer.com/api/txs/?address=' + CONFIG.btcAddress)
+
+			// find the latest transaction with OP_RETURN
+			.then(function(data) {
+				for (var i = 0; i < data.txs.length; i++) {
+					if (data.txs[i].vin.length > 0 && data.txs[i].vin[0].addr === CONFIG.btcAddress) { // only read transaction sent from CONFIG.btcAddress
+						for (var j = 0; j < data.txs[i].vout.length; j++) {
+							var scriptPubKey = data.txs[i].vout[j].scriptPubKey.asm
+							if (scriptPubKey.indexOf('OP_RETURN') !== -1) {
+
+								// extract webpage torrent info hash
+								return scriptPubKey.split(' ').slice(-1)[0];
+							}
+						}
+					}
+				}
+			})
+
+			// download webpage HTML via torrents
+			.then(function(torrentHash) {
+				console.log('using hash', torrentHash)
+
+				var magnet = CONFIG.magnetBase + torrentHash
+				var client = new WebTorrent()
+
+				client.add(magnet, function(torrent) {
+					var file = torrent.files[0]
+					file.getBuffer(function(err, buffer) {
+
+						// overwrite current page with new HTML
+						document.open()
+						document.write(buffer.toString())
+						document.close()
+					})
+				})
+			})
+		})
+
+	</script>
+
+</body>
+</html>
