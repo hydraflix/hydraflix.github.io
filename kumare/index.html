@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<!-- collection of general dependencies -->
+		<script type="text/javascript" src="javascripts/lib/jquery.js"></script>
+		<script type="text/javascript" src="javascripts/lib/json2.js"></script>
+		<script type="text/javascript" src="javascripts/lib/underscore.js"></script>
+		<script type="text/javascript" src="javascripts/lib/backbone.js"></script>
+
+		<!-- pwmckenna/backbrace submodule -->
+		<script type="text/javascript" src="javascripts/backbrace/backbrace.js"></script>
+		<!-- pwmckenna/btapp submodule -->
+		<script type="text/javascript" src="javascripts/btapp/btapp.js"></script>
+		<script type="text/javascript" src="javascripts/btapp/client.btapp.js"></script>
+		<script type="text/javascript" src="javascripts/btapp/plugin.btapp.js"></script>
+		<script type="text/javascript" src="javascripts/btapp/pairing.btapp.js"></script>
+		<!-- pwmckenna/jStorage submodule -->
+		<script type="text/javascript" src="javascripts/jStorage/jstorage.js"></script>
+
+		<script type="text/javascript" src="javascripts/application.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/application.css" />
+
+		<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+	    <script src="http://vjs.zencdn.net/c/video.js"></script>
+
+		<link href="stylesheets/prettify.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="javascripts/lib/prettify.js"></script>		
+
+  		<title>Kumar&#233;</title>
+	</head>
+	<body onload="prettyPrint()">
+		<a href="https://github.com/pwmckenna/kumarethemovie"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="http://torque.bittorrent.com/labs/">
+						<span class="highlight">BitTorrent Torque Labs</span>: Powering web apps using <span class="highlight">Btapp.js</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<h3>Downloading Kumar&#233;</h3>
+			<div id="btapp_code"><pre class="prettyprint">
+var btapp = new Btapp;
+btapp.connect();
+
+var url = 'http://featuredcontent.utorrent.com/torrents/Kumare-BitTorrent.torrent';
+btapp.on('add', function() {
+	btapp.get('add').torrent(url);
+});
+// The info hash of the Kumare torrent is the following
+// This will be the key in the Backbone Collection of torrents.
+var hash = '4CB4A0336A3C01836536111F44D8A252FDFB0898';
+			</div>
+
+
+			<h3>Streaming Video From A Torrent</h3>
+			<div id="btapp_code"><pre class="prettyprint">
+// The name of the file is the key in the Backbone Collection 
+// of files in the torrent.
+var name = escape('Kumare - Exclusive Movie Clip_(mkv h.264 720p).mkv');
+btapp.live(
+	'torrent ' + hash + ' file ' + name + ' properties streaming_url', 
+	function(src) {
+		// The folks over at http://videojs.com/ have a wonderful js 
+		// media player that is super simple to use.
+		_V_("kumare_video").ready(function(){
+			this.src(src);
+			this.play();
+		});
+	}
+);</pre>
+			</div>
+			<div id="video_container">
+				<video id="kumare_video" class="video-js vjs-default-skin" controls
+				preload="auto" width="600" height="360"
+				data-setup="{}">
+				</video>
+			</div>
+			<div class="progress progress-striped
+			     active">
+			  <div class="bar"
+			       style="width: 0%;"></div>
+			</div>
+			<h3>Displaying Images From A Torrent</h3>
+			<div id="btapp_code"><pre class="prettyprint">
+// Lets display the images in the torrent
+btapp.live(
+	'torrent ' + hash + ' file * properties',
+	function(properties) {
+		var name = properties.get('name');
+		var src = properties.get('streaming_url');
+		if(name.indexOf('jpg', name.length - 3) !== -1) {
+			var img = $('&#60;img src="' + src + '" /&#62;');
+			$('#kumare_images').append(img);
+		}
+	}
+);</pre>
+			</div>
+			<ul id="kumare_images">
+			</ul>
+		</content>
+	</body>
+</html>

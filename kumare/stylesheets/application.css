@@ -1,0 +1,57 @@
+body {
+	/**background-image: url(../images/bg.jpg);**/
+	background-color: black;
+}
+
+.content {
+	position: absolute;
+	height: auto;
+	width: 600px;
+
+	left: 50%;
+	margin-left: -300px;
+	top: 50px;
+	padding-bottom: 50px;
+}
+
+#btapp_code {
+	height: auto;
+	width: 100%;
+	box-shadow: 0px 0px 25px #888;
+	margin-bottom: 25px;
+}
+
+#video_container {
+	height: 360px;
+	width: 100%;
+	box-shadow: 0px 0px 25px #888;
+}
+
+#kumare_images {
+	margin: 0;
+	height: auto;
+	width: 100%;
+	box-shadow: 0px 0px 25px #888;
+}
+
+#kumare_images img {
+	width: 75px;
+	height: 75px;
+}
+
+.content h3 {
+	width: 100%;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 50px;
+}
+
+.progress {
+	margin-top: 25px;
+	box-shadow: 0px 0px 40px #888;
+	background-color: #000;
+	background-image: none;
+}
+.progress .bar {
+	background-color: #888;
+}
